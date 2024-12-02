@@ -14,7 +14,7 @@ terraform {
 
 provider "morpheus" {
   url              = var.morpheus_url
-  tenant_subdomain = "test"
+  tenant_subdomain = "SubTenant"
   username         = "<USERNAME>"
   password         = "<PASSWORD>"
 }
