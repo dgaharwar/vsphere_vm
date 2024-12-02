@@ -9,7 +9,7 @@ data "morpheus_cloud" "morpheus_vsphere" {
 }
 
 data "morpheus_resource_pool" "vsphere_resource_pool" {
-  name     = "Demo"
+  name     = "Demo/Demo"
   cloud_id = data.morpheus_cloud.morpheus_vsphere.id
   # cloud_id = 5126
 #   2256
