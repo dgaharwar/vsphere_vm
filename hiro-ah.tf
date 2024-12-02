@@ -4,26 +4,26 @@
 # }
 
 data "morpheus_cloud" "morpheus_vsphere" {
-  name = "test vCenter Alletra"
+  name = "Demo"
 #   10
 }
 
 data "morpheus_resource_pool" "vsphere_resource_pool" {
-  name     = "Business Advanced"
+  name     = "Demo"
   cloud_id = data.morpheus_cloud.morpheus_vsphere.id
   # cloud_id = 5126
 #   2256
 }
 
-data "morpheus_instance_type" "centos_instance" {
-  name = "DEV - Datagroup Rocky Linux servers"
+data "morpheus_instance_type" "ubuntu_instance" {
+  name = "Custom Ubuntu"
 #   105
 }
 
 data "morpheus_group" "testGroup" {
   # name = "Corbox 3"
   # name = "VMware Testing"
-  name = "TestVmware"
+  name = "VMware"
 }
 
 # data "morpheus_instance_layout" "CentOS8S" {
@@ -33,7 +33,7 @@ data "morpheus_group" "testGroup" {
 
 
 data "morpheus_plan" "vmware" {
-  name = "4 CPU, 16GB Memory - L"
+  name = "1 CPU, 512MB Memory"
   provision_type = "VMWare"
 #   405
 }
@@ -47,7 +47,7 @@ resource "morpheus_vsphere_instance" "tf_example_vsphere_instance" {
   group_id           = data.morpheus_group.testGroup.id
   instance_type_id   = data.morpheus_instance_type.centos_instance.id
 #   instance_layout_id = data.morpheus_instance_layout.CentOS8S.id
-  instance_layout_id = 1612
+  instance_layout_id = 994
   plan_id            = data.morpheus_plan.vmware.id
   environment        = "dev"
   resource_pool_id   = data.morpheus_resource_pool.vsphere_resource_pool.id
@@ -55,11 +55,11 @@ resource "morpheus_vsphere_instance" "tf_example_vsphere_instance" {
 
   interfaces {
     # network_id = data.morpheus_network.vmnetwork.id
-    network_id = 274
+    network_id = 2871
   }
 
   tags = {
-    name = "centos"
+    name = "ubuntu"
   }
 
   evar {
