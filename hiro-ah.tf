@@ -45,7 +45,7 @@ resource "morpheus_vsphere_instance" "tf_example_vsphere_instance" {
   # group_id           = data.morpheus_group.morpheus_lab.id
   # group_id           = 39
   group_id           = data.morpheus_group.testGroup.id
-  instance_type_id   = data.morpheus_instance_type.centos_instance.id
+  instance_type_id   = data.morpheus_instance_type.ubuntu_instance.id
 #   instance_layout_id = data.morpheus_instance_layout.CentOS8S.id
   instance_layout_id = 994
   plan_id            = data.morpheus_plan.vmware.id
